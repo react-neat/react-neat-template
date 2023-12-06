@@ -16,7 +16,7 @@ ARG VITE_GA_ID
 
 COPY package.json bun.lockb ./
 RUN bun i --silent
-RUN bunx vite build -l silent
+RUN bunx vite build
 COPY . ./
 
 # Serve command
