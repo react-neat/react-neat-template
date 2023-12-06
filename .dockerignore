@@ -1,0 +1,11 @@
+.git
+.idea
+.vscode
+
+node_modules
+build
+design
+docs
+
+# Bun
+node_modules.bun
