@@ -6,14 +6,14 @@ on:
 
 
 env:
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # In case you have scoped libraries.
 
 permissions:
   id-token: write # This is required for requesting the JWT
   contents: read  # This is required for actions/checkout
 
 jobs:
-  build_and_deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout latest Code

@@ -1,13 +1,13 @@
-name: Preview Deploy
+name: AWS S3 Deploy
 
 on:
   push:
-    branches: ["development"]
+    branches: ["aws-s3-deploy"]
 
 
 env:
   AWS_REGION: us-east-1
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # In case you have scoped libraries.
 
 permissions:
   id-token: write # This is required for requesting the JWT
