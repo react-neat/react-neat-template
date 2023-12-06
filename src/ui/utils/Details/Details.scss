@@ -1,0 +1,72 @@
+@import "@/assets/scss/bundle.scss";
+
+.details {
+	background: white;
+	border: 1px solid $color-gray;
+	border-radius: 0.5em;
+	transition: 200ms ease box-shadow;
+
+	&:hover {
+		box-shadow: 0 2px 12px -2px $color-gray;
+	}
+
+	&--dark {
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.15);
+	}
+}
+
+.details__summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	padding: 0.75em 1.25em;
+
+	cursor: pointer;
+
+	.details--dark & {
+		background: rgba(white, 0.1);
+	}
+}
+
+.details__text {
+	font-weight: 700;
+	cursor: pointer;
+
+	.details--dark & {
+		color: white;
+	}
+}
+
+.details__icon {
+	--icon-size: 0.875rem;
+
+	transition: 200ms ease transform;
+
+	&--expanded {
+		transform: rotateX(180deg)
+	}
+}
+
+.details__body {
+	height: 0px;
+	transition: 350ms ease height;
+
+	&--expanded {
+		height: calc(var(--details-height) * 1px);
+	}
+}
+
+.details__inner {
+	display: grid;
+	gap: 0.5em;
+	padding: 1em 1.25em;
+	transition: 250ms ease opacity, 250ms ease transform;
+
+	:not(.details__body--expanded)>& {
+		opacity: 0;
+		transform: translateY(-5%);
+		pointer-events: none;
+	}
+}

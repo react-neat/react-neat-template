@@ -1,0 +1,63 @@
+@import "@/assets/scss/bundle.scss";
+
+.popup-layout {
+	position: relative;
+
+	display: grid;
+	gap: 1em;
+
+	padding: 5em;
+	background: $color-gray-dark;
+	border-radius: 0.5em;
+
+	min-width: 20em;
+	max-width: 75vw;
+
+	max-height: 90vh;
+
+	margin: auto;
+	overflow: auto;
+	overflow: overlay;
+	overscroll-behavior: contain;
+
+	color: white;
+
+	box-shadow: 0px 0px 1em rgba(black, 0.1);
+	cursor: initial;
+
+	@include Mobile {
+		padding: 1.75em;
+		max-width: 90vw;
+	}
+
+	@include Scrollbar(0.5em, rgba($color-blue, 0.35), transparent);
+}
+
+.popup-layout__close {
+	--icon-color: white;
+
+	position: absolute;
+	top: 2.5em;
+	right: 4.375em;
+
+	margin-left: auto;
+
+	opacity: 0.6;
+}
+
+.popup-layout__title {
+	max-width: 20rem;
+
+	font-size: $font-size-h5;
+	text-align: center;
+}
+
+.popup-layout__container {
+	display: grid;
+	justify-items: center;
+	gap: 3.75em;
+
+	a {
+		color: white;
+	}
+}

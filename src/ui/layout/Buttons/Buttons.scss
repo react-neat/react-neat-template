@@ -1,0 +1,14 @@
+@import "@/assets/scss/bundle.scss";
+
+.buttons {
+	display: grid;
+	grid-auto-flow: column;
+
+	align-items: center;
+	gap: 2.5em;
+
+	&--centered {
+		grid-auto-columns: 1fr;
+		justify-content: center;
+	}
+}

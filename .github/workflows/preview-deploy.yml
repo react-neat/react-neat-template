@@ -1,0 +1,43 @@
+name: Preview Deploy
+
+on:
+  push:
+    branches: ["development"]
+
+
+env:
+  AWS_REGION: us-east-1
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read  # This is required for actions/checkout
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest Code
+        uses: actions/checkout@v3
+
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Installing
+        run: bun i --silent
+
+      - name: Building
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
+        run: bun run build -- -l silent
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: __REPLACE__
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Copy file to S3
+        run: |
+          aws s3 cp ./build s3://__REPLACE__ --recursive

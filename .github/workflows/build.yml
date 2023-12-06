@@ -1,0 +1,32 @@
+name: Build
+
+on:
+  push:
+    branches: ["*"]
+
+
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read  # This is required for actions/checkout
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest Code
+        uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Installing
+        run: bun i --silent
+
+      - name: Building
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
+        run: bun run build -- -l silent

@@ -1,0 +1,64 @@
+@import "@/assets/scss/bundle.scss";
+
+.field {
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	gap: 0.75em;
+
+	min-width: var(--input-width, min-content);
+
+	text-align: left;
+	cursor: text;
+}
+
+.field__label {
+	font-size: 1rem;
+}
+
+.field__appearance {
+	display: flex;
+
+	@include InputAppearance(0.625em 0.875em);
+
+	&--filled {
+		color: $color-dark;
+		background: white;
+	}
+}
+
+.field__input {
+	flex: 1;
+	width: 100%;
+
+	font-size: 1rem;
+	font-weight: 400;
+
+	&:disabled {
+		cursor: not-allowed;
+	}
+}
+
+.field__icon {
+	--icon-size: 1.25em;
+	--icon-color: #{rgba($color-dark, 0.5)};
+}
+
+.field__validity {
+	position: absolute;
+	top: calc(100% + 0.25em);
+	right: 0;
+
+	color: $color-red-pale;
+
+	font-size: 0.5rem;
+	font-style: italic;
+
+	transition: 250ms ease opacity;
+
+	&:not(&--active) {
+		opacity: 0;
+		pointer-events: none;
+	}
+}

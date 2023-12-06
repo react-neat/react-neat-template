@@ -1,0 +1,31 @@
+@import "@/assets/scss/bundle.scss";
+
+.tumbler {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	min-width: 3.5em;
+	min-height: 2em;
+
+	background: $color-red-pale;
+	border-radius: 10em;
+
+	transition: 200ms ease background-color;
+
+	cursor: pointer;
+
+	&--checked {
+		background: $color-green;
+	}
+}
+
+.tumbler__text {
+	color: $color-dark;
+
+	font-size: $font-size-h4;
+
+	&--active {
+		color: $color-blue;
+	}
+}

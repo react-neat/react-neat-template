@@ -1,0 +1,42 @@
+@import "@/assets/scss/bundle.scss";
+
+.table-wrapper {
+	width: 100%;
+
+	@include Mobile {
+		overflow: auto;
+
+		white-space: nowrap;
+	}
+}
+
+table.table {
+	width: 100%;
+	border-collapse: collapse;
+
+	th,
+	td {
+		font-size: 1.125rem;
+
+		vertical-align: middle;
+	}
+
+	th {
+		padding: 0.75rem 0;
+		border-bottom: 1px solid rgba($color-gray-dark, 0.2);
+
+		font-size: $font-size-h4;
+		font-weight: 400;
+
+		color: rgba($color-gray-dark, 0.5);
+		text-align: left;
+	}
+
+	td {
+		padding: 1rem 0;
+	}
+
+	tr:not(:last-child) td {
+		border-bottom: 1px solid rgba($color-gray-dark, 0.2);
+	}
+}

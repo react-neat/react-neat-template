@@ -1,0 +1,10 @@
+{
+  "name": "OCB -> Menu",
+  "id": "00000000",
+  "api": "0.1.0",
+  "main": "build/code.js",
+  "ui": "build/ui.html",
+  "editorType": [
+    "figma"
+  ]
+}

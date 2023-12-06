@@ -1,0 +1,15 @@
+@import "@/assets/scss/bundle.scss";
+
+.header {
+	display: flex;
+
+	position: sticky;
+	top: 0;
+
+	padding: 1.25em;
+	background: #848484;
+
+	height: $header-height;
+
+	z-index: 1;
+}

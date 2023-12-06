@@ -1,0 +1,22 @@
+@import "@/assets/scss/bundle.scss";
+
+.expander {
+	display: grid;
+	grid-template-rows: 0fr;
+
+	transition: 300ms ease grid-template-rows;
+	overflow: hidden;
+
+	&--expanded {
+		grid-template-rows: 1fr;
+	}
+}
+
+.expander__inner {
+	overflow: hidden;
+}
+
+.expander__container {
+	min-height: calc(var(--height) * 1px);
+	transition: 300ms ease min-height;
+}

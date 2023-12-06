@@ -1,0 +1,32 @@
+@import "@/assets/scss/bundle.scss";
+
+.fields {
+	display: grid;
+	align-content: baseline;
+	gap: 1em;
+
+	a {
+		margin-left: auto;
+
+		color: $color-gray;
+
+		font-style: italic;
+	}
+
+	&--row {
+		display: flex;
+		gap: 1em;
+	}
+
+	&--min {
+		--input-width: min-content;
+	}
+
+	&--max {
+		--input-width: max-content;
+	}
+
+	&--fit {
+		--input-width: fit-content;
+	}
+}
