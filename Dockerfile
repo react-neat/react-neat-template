@@ -12,12 +12,10 @@ ARG VITE_API_CACHE_TIME
 
 ARG VITE_GA_ID
 
-
-
-COPY package.json bun.lockb ./
-RUN bun i --silent
-RUN bunx vite build
 COPY . ./
+
+RUN bun i --silent
+RUN bun run build
 
 # Serve command
 CMD bunx serve -s build
