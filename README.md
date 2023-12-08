@@ -1,3 +1,13 @@
+# Vite React Template
+
+- Storybook
+- Jest
+- Vite
+- Bun
+- React
+- TypeScript
+- SCSS
+
 ## Getting Started
 
 First, install the dependencies:
